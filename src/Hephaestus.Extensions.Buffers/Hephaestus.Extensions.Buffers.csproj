@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>disable</Nullable>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <RepositoryUrl>https://github.com/meegasmullage/Hephaestus.Extensions</RepositoryUrl>
+    <PackageDescription>Implementation of IBufferWriter backed by ArrayPool</PackageDescription>
+  </PropertyGroup>
 
 </Project>

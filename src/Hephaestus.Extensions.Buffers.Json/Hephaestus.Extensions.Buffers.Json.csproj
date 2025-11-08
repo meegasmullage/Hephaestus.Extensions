@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>disable</Nullable>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <RepositoryUrl>https://github.com/meegasmullage/Hephaestus.Extensions</RepositoryUrl>
+    <PackageDescription>Implementation of IBufferWriter to support Utf8JsonWriter and Utf8JsonReader</PackageDescription>
+  </PropertyGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Hephaestus.Extensions.Buffers\Hephaestus.Extensions.Buffers.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hephaestus.Extensions.Buffers\Hephaestus.Extensions.Buffers.csproj" />
+  </ItemGroup>
 
 </Project>

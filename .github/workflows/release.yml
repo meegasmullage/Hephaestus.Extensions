@@ -1,0 +1,33 @@
+name: Publish to NuGet
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: check out
+      uses: actions/checkout@v4
+
+    - name: dotnet install
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'
+
+    - name: dotnet restore
+      run: dotnet restore src/Hephaestus.Extensions.sln
+
+    - name: dotnet build
+      run: dotnet build src/Hephaestus.Extensions.sln --configuration Release --no-restore
+
+    - name: dotnet pack
+      run: dotnet pack src/**/Hephaestus.Extensions.Buffers.csproj --configuration Release --no-build -o ./nupkg /p:Version=${{ github.ref_name }}
+
+    - name: dotnet pack
+      run: dotnet pack src/**/Hephaestus.Extensions.Buffers.Json.csproj --configuration Release --no-build -o ./nupkg /p:Version=${{ github.ref_name }}
+
+    - name: dotnet push 
+      run: dotnet nuget push "./nupkg/*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
